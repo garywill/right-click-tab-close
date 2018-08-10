@@ -1,7 +1,8 @@
-
-Firefox chromeuserJS script to close tab by right clicking on it.
+Firefox userchrome js script to close tab by right clicking on it.
 
 Put `chrome` folder in firefox profile folder.
+
+Tested on firefox 60
 
 ## Thanks
 
