@@ -1,6 +1,6 @@
-Firefox userchrome js script to close tab by right clicking on it.
+Firefox userchrome js script to close tab by right clicking it.
 
-Put `chrome` folder in firefox profile folder.
+Put `chrome` folder in firefox profile folder. Delete `startupCache` in profile folder.
 
 Tested on firefox 60
 
