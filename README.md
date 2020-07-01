@@ -1,13 +1,15 @@
-Firefox userChrome JS script to close tab by right-clickinig it. Shift + right-click opens context menu.
+Close tab by right-clickinig on tab button. Shift + right-click opens context menu.
 
-Tested on firefox 68.
+Firefox userChrome JS script.
+
+Tested on firefox 78.
 
 ## How to enable
 
 This repo only contains the specific function, doesn't contain the code to enable userchrome script.
 
-For how to enable userchrome script, see 
+For how to enable, see
 
-- https://github.com/Sporif/firefox-quantum-userchromejs
+- https://github.com/xiaoxiaoflood/firefox-scripts
 
-- https://github.com/Aris-t2/CustomJSforFx#method-3---files-for-firefox-installation-and-profile-folders-fx60-68-only
+- https://github.com/Aris-t2/CustomJSforFx
