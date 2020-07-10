@@ -14,7 +14,7 @@ console.log("right_click_close_tab.js");
         
         for ( var obj = event.target; obj.id != "tabbrowser-tabs" ; obj = obj.parentNode )
         {
-            if ( obj.className == "tabbrowser-tab" ) {
+            if ( obj.classList.contains("tabbrowser-tab") ) {
                 event.preventDefault();
                 event.stopPropagation();
                 gBrowser.removeTab(obj, {animate: true});
@@ -30,7 +30,7 @@ console.log("right_click_close_tab.js");
         
         for ( var obj = event.target; obj.id != "tabbrowser-tabs" ; obj = obj.parentNode )
         {
-            if ( obj.className == "tabbrowser-tab" ) {
+            if ( obj.classList.contains("tabbrowser-tab") ) {
                 event.preventDefault();
                 event.stopPropagation();
                 break;
@@ -40,3 +40,4 @@ console.log("right_click_close_tab.js");
     
     
 })();
+
