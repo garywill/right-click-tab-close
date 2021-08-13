@@ -1,43 +1,38 @@
 /* Firefox userChrome script
  * Right-clicking on tab button to close tab
- * Tested on Firefox 78
- * Author: garywill (https://github.com/garywill)
+ * Shift + right-clicking to popup menu
+ * Tested on Firefox 91
+ * Author: garywill (https://garywill.github.io)
  */
 
 console.log("right_click_close_tab.js");
 
 (() => {
-    
-    gBrowser.tabContainer.addEventListener('click', function(event) {
-        
-        if (event.button != 2 || event.shiftKey  ) return;
-        
-        for ( var obj = event.target; obj.id != "tabbrowser-tabs" ; obj = obj.parentNode )
-        {
-            if ( obj.classList.contains("tabbrowser-tab") ) {
-                event.preventDefault();
-                event.stopPropagation();
-                gBrowser.removeTab(obj, {animate: true});
-                break;
-            }
-        }
-        
-    }); 
 
+    gBrowser.tabContainer.addEventListener("TabOpen", eventTabAdded, false);
+    function eventTabAdded(event) {
+        var tab = event.target;
+        tab.addEventListener('click', onTabEvent);
+        tab.addEventListener('contextmenu', onTabEvent);
+    }
     
-    gBrowser.tabContainer.addEventListener('contextmenu', function(event) {
-        if (event.button != 2 || event.shiftKey  ) return;
+    
+    function onTabEvent(event) {
+        //console.log(event.type);
+        if (event.button != 2 || event.shiftKey  ) 
+            return;
+            
+        event.preventDefault();
+        event.stopPropagation();
         
-        for ( var obj = event.target; obj.id != "tabbrowser-tabs" ; obj = obj.parentNode )
-        {
-            if ( obj.classList.contains("tabbrowser-tab") ) {
-                event.preventDefault();
-                event.stopPropagation();
-                break;
-            }
-        }
-    }); 
+        if (event.type == 'click')
+            gBrowser.removeTab(this, {animate: true});
+    }
     
+    gBrowser.tabContainer.querySelectorAll('tab').forEach( function(tab, index) {
+        tab.addEventListener('click', onTabEvent);
+        tab.addEventListener('contextmenu', onTabEvent);
+    });
     
 })();
 
