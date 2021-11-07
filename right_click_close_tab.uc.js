@@ -5,6 +5,10 @@
  * Author: garywill (https://garywill.github.io)
  */
 
+// ==UserScript==
+// @include         main
+// ==/UserScript==
+
 console.log("right_click_close_tab.js");
 
 (() => {
@@ -35,4 +39,3 @@ console.log("right_click_close_tab.js");
     });
     
 })();
-
